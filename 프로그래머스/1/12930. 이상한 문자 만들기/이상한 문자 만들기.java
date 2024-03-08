@@ -1,36 +1,14 @@
 class Solution {
-     public String solution(String s) {
-            String answer = "";
+  public String solution(String s) {
 
-            String[] list=s.split(" ",-1);
+        String answer = "";
+        int cnt = 0;
+        String[] array = s.split("");
 
-
-            String[] list2=new String[list.length];
-
-
-
-
-            for(int i=0;i<list.length;i++) {
-                list2[i]="";
-                for(int j=0;j<list[i].length();j++) {   
-                    if(j%2==0) {
-                        list2[i]+=Character.toUpperCase(list[i].charAt(j));
-                    }
-                    else {
-                        list2[i]+=Character.toLowerCase(list[i].charAt(j));
-                    }
-                }
-            }
-
-            for(int i=0;i<list2.length;i++) {
-                            if(i!=list2.length-1) {
-                    answer+=list2[i]+" ";
-                }
-                else {
-                    answer+=list2[i];
-                }
-            }
-
-            return answer;
+        for(String ss : array) {
+            cnt = ss.contains(" ") ? 0 : cnt + 1;
+            answer += cnt%2 == 0 ? ss.toLowerCase() : ss.toUpperCase(); 
         }
+      return answer;
+  }
 }
